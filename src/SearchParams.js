@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 const SearchParams = () => {
   //initial state, state management
   const [location, setLocation] = useState("Seattle, WA");
+  // const [animal, setAnimal] = useState("Dog")
 
   return (
     <div className="search-params">
