@@ -5,12 +5,14 @@ const SearchParams = () => {
   //initial state, state management
   const [location, setLocation] = useState("Seattle, WA");
   const [animal, setAnimal] = useState("dog");
+  const [breed, setBreed] = useState("");
+  const [breeds, setBreeds] = useState([]);
 
   return (
     <div className="search-params">
       <form>
         <label htmlFor="location">
-          location
+          Location
           <input
             id="location"
             value={location}
@@ -28,7 +30,22 @@ const SearchParams = () => {
           >
             <option>all</option>
             {ANIMALS.map((animal) => (
-              <option value={animal}>{animal}</option>
+              <option key={animal} value={animal}>{animal}</option>
+            ))}
+          </select>
+        </label>
+        <label htmlFor="breed">
+          Animal
+          <select
+            id="breed"
+            value={breed}
+            onChange={(event) => setBreed(event.target.value)}
+            onBlur={(e) => setBreed(e.target.value)}
+            disabled={breeds.length === 0}
+          >
+            <option>all</option>
+            {breeds.map((breedString) => (
+              <option key={breedString} value={breedString}>{breedString}</option>
             ))}
           </select>
         </label>
