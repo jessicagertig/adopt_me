@@ -64,7 +64,7 @@ const SearchParams = () => {
             <option value="peru">Peru</option>
             <option value="darkblue">Dark Blue</option>
             <option value="mediumorchid">Medium Orchid</option>
-            <option value="chartreuese">Chartreuese</option>
+            <option value="chartreuse">Chartreuse</option>
             <option value="pink">Pink</option>
           </select>
         </label>
