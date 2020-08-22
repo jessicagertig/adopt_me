@@ -16,6 +16,7 @@ class Details extends React.Component {
 
   //only occurs when page first renders, good for api calls
   componentDidMount() {
+    throw new Error('lol')
     //pet is an api call
     pet.animal(this.props.id).then(({ animal }) => {
       this.setState({
