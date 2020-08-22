@@ -1,7 +1,8 @@
 import React from "react";
 import pet from "@frontendmasters/pet";
-import Carousel from './Carousel';
+import Carousel from "./Carousel";
 import ErrorBoundary from "./ErrorBoundary";
+import ThemeContext from "./ThemeContext";
 
 class Details extends React.Component {
   // constructor(props) {
@@ -32,10 +33,10 @@ class Details extends React.Component {
 
   render() {
     if (this.state.loading) {
-      return <h1>loading...</h1>
-    } 
+      return <h1>loading...</h1>;
+    }
 
-    const { animal, breed, location, description, name, media } = this.state
+    const { animal, breed, location, description, name, media } = this.state;
 
     return (
       <div className="details">
@@ -43,21 +44,27 @@ class Details extends React.Component {
         <div>
           <h1>{name}</h1>
           <h2>{`${animal} - ${breed} - ${location}`}</h2>
-          <button>Adopt {name}</button>
+          <ThemeContext.Consumer>
+            {(themeHook) => (
+              <button style={{ backgroundColor: themeHook[0] }}>
+                Adopt {name}
+              </button>
+            )}
+          </ThemeContext.Consumer>
           <p>{description}</p>
         </div>
       </div>
-    )
+    );
   }
 }
 
 //wrapping it through a HOC will cause it catch all errors of children of Details component and it's children
-//spread props below so we don't have to determine all the props being passed 
+//spread props below so we don't have to determine all the props being passed
 //caution:only use spread operator when the component (such as ErrorBoundary) doesn't care about the details
 export default function DetailsWithErrorBoundary(props) {
   return (
     <ErrorBoundary>
       <Details {...props} />
     </ErrorBoundary>
-  )
-};
+  );
+}
