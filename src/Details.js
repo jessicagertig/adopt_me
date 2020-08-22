@@ -1,6 +1,7 @@
 import React from "react";
 import pet from "@frontendmasters/pet";
 import Carousel from './Carousel';
+import ErrorBoundary from "./ErrorBoundary";
 
 class Details extends React.Component {
   // constructor(props) {
@@ -50,4 +51,13 @@ class Details extends React.Component {
   }
 }
 
-export default Details;
+//wrapping it through a HOC will cause it catch all errors of children of Details component and it's children
+//spread props below so we don't have to determine all the props being passed 
+//caution:only use spread operator when the component (such as ErrorBoundary) doesn't care about the details
+export default function DetailsWithErrorBoundary(props) {
+  return (
+    <ErrorBoundary>
+      <Details {...props} />
+    </ErrorBoundary>
+  )
+};
