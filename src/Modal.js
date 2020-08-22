@@ -16,7 +16,7 @@ const Modal = ({ children }) => {
     modalRoot.appendChild(elRef.current)
     //in useEffect if you return a FUNCTION then that is the cleanup
     return () => modalRoot.removeChild(elRef.current);
-  })
+  }, [])
 
   return createPortal(<div>{children}</div>, elRef.current)
 }
