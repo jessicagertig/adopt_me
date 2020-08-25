@@ -6,4 +6,4 @@ We also built a custom hook and learned a fascinating way to add any component t
 
 Also covered: using Parcel (instead of Webpack), formatting Eslint, formatting prettier, adding some Babel presets and using Reach Router.
 
-the course https://frontendmasters.com/courses/complete-react-v5/
+The course: https://frontendmasters.com/courses/complete-react-v5/
